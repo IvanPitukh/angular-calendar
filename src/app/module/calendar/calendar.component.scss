@@ -1,0 +1,78 @@
+.inline-calendar-card {
+    width: 90%;
+    margin: auto;
+}
+
+#open_modal {
+    padding: 12px 19px;
+    cursor: pointer;
+}
+
+.pl-25 {
+    padding-left: 25px;
+}
+
+.pr-25 {
+    padding-right: 25px;
+}
+
+.pt-25 {
+    padding-top: 25px;
+}
+
+.pb-25 {
+    padding-bottom: 25px;
+}
+
+.times-container {
+    position: relative;
+    border: 1px solid #aaa;
+}
+
+.tiem-cell {
+    position: relative;
+    border-bottom: 1px solid #aaa;
+    height: 60px;
+    cursor: pointer;
+    transition: .4s;
+    opacity: 1;
+    &:hover {
+        background-color: #eee;
+        opacity: .7;
+        span {
+            color: #444;
+        }
+    }
+
+    span {
+        position: absolute;
+        left: -44px;
+        top: -10px;
+    }
+}
+
+.event-cell {
+    position: absolute;
+    width: auto;
+    height: 30px;
+    padding: 0 18px;
+    background-color: rgba(#f00, 0.5);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+.col-3 {
+    flex: 3;
+}
+
+.col-9 {
+    flex: 9;
+}

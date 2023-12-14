@@ -1,0 +1,1 @@
+export const START_POINTER = 50;

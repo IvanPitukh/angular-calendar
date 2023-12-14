@@ -1,0 +1,26 @@
+
+
+<div class="grid">
+    <div class="col-3 pl-25 pr-25 pt-25 pb-25">
+        <mat-card class="inline-calendar-card">
+            <!-- <button id="open_modal">Add</button> -->
+            <mat-calendar [(selected)]="selected" (selectedChange)="onSelectedDate($event)"></mat-calendar>
+        </mat-card>
+    </div>
+    <div class="col-9 pl-25 pr-25 pt-25 pb-25">
+        <div class="times-container">
+            <ng-container *ngFor="let time of times; index as index;">
+                <div class="tiem-cell" (click)="onClickTimeCell(index, time)"><span>{{time}}</span></div>
+            </ng-container>
+            <div class="event_container">
+                <ng-container *ngFor="let item of events; index as index;">
+                    <div class="event-cell" cdkDrag [cdkDragData]="item" (cdkDragStarted)="onDragStart($event)" (cdkDragEnded)="onDragEnd($event)" (mouseup)="onClickEvent($event, item)" [ngStyle]="{left: item.left + 'px',  top : item.top + 'px', height: item.height + 'px'}">
+                        <span>{{item.title}}</span>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-modal [selectedDate]="selected" [actionType]="actionType"></app-modal>

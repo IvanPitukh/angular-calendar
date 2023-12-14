@@ -1,0 +1,56 @@
+
+<!-- The Modal -->
+<div 
+    class="modal" 
+    [ngStyle]="{'display': openModal ? 'block' : 'none'}"
+>
+    <!-- Modal content -->
+    <div class="center-container">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" (click)="closeModal()">&times;</span>
+                <h5>Event</h5>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="eventForm" (ngSubmit)="onEventSubmit()">
+                    <mat-form-field class="w-100">
+                        <mat-label>Title</mat-label>
+                        <input matInput type="text" formControlName="title">
+                    </mat-form-field>
+                    <div class="grid">
+                        <div class="column">
+                            <mat-form-field appearance="standard" class="w-100">
+                                <input type="time" matInput formControlName="start" step="600">
+                            </mat-form-field>
+                        </div>
+                        <div class="column">
+                            <mat-form-field appearance="standard" class="w-100">
+                                <input type="time" matInput formControlName="end" step="600">
+                            </mat-form-field>
+                        </div>
+                        <p *ngIf="!validPeriod" class="error">Invalid Start and End</p>
+                    </div>
+                    <mat-form-field appearance="standard" class="w-100">
+                        <mat-label>Description</mat-label>
+                        <textarea 
+                            matInput
+                            cdkTextareaAutosize
+                            #autosize="cdkTextareaAutosize"
+                            cdkAutosizeMinRows="1"
+                            cdkAutosizeMaxRows="5"
+                            formControlName="description"
+                        >
+                        </textarea>
+                    </mat-form-field>
+                    <div class="d-flex justify-content-end">
+                        <button class="mr-5" type="submit" mat-flat-button color="accent">Save</button>
+                        <button *ngIf="actionType=='edit'" type="button" (click)="onDeleteEvent()" mat-flat-button color="accent">Delete</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
